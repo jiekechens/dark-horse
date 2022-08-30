@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/cart/cart",
+    "pages/user/user",
+    "pages/user/user",
+    "pages/category/category"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "小橘商城",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#eb4450"
+  },
+  "usingComponents": {}
+}
