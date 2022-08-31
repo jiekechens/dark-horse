@@ -55,10 +55,10 @@
 		]
 	},
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
+		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "小橘商城",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#eb4450"
+		"navigationBarBackgroundColor": "#C00000",
+		"backgroundColor": "#FFFFFF"
 	},
 	"uniIdRouter": {}
 }
