@@ -3,16 +3,50 @@
     "pages/index/index",
     "pages/category/category",
     "pages/cart/cart",
-    "pages/user/user",
-    "pages/user/user",
-    "pages/category/category"
+    "pages/user/user"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "subpage",
+      "pages": [
+        "goods_detail/goods_detail"
+      ]
+    }
+  ],
   "window": {
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "小橘商城",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#eb4450"
+    "navigationBarBackgroundColor": "#C00000",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "selectedColor": "#C00000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/imge/home.png",
+        "selectedIconPath": "static/imge/home-o.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "iconPath": "static/imge/category.png",
+        "selectedIconPath": "static/imge/category-o.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "static/imge/cart.png",
+        "selectedIconPath": "static/imge/cart-o.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "static/imge/my.png",
+        "selectedIconPath": "static/imge/my-o.png",
+        "text": "个人中心"
+      }
+    ]
   },
   "usingComponents": {}
 }
