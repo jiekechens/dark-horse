@@ -24,16 +24,14 @@
 				<image :src="item.floor_title.image_src" mode="widthFix" class="floor-title"></image>
 				<view class="floor-img-box">
 					<!-- 左侧大图片的盒子 -->
-					<view class="left-img-box">
-						<image :src="item.product_list[0].image_src"
-							:style="{width: item.product_list[0].image_width + 'rpx'}" mode="widthFix"></image>
-					</view>
+					<navigator class="left-img-box" :url="item.product_list[0].url">
+					    <image :src="item.product_list[0].image_src" :style="{width: item.product_list[0].image_width + 'rpx'}" mode="widthFix"></image>
+					  </navigator>
 					<!-- 右侧 4 个小图片的盒子 -->
 					<view class="right-img-box">
-						<view class="right-img-item" v-for="(item2, i2) in item.product_list" :key="i2" v-if="i2 !== 0">
-							<image :src="item2.image_src" mode="widthFix" :style="{width: item2.image_width + 'rpx'}">
-							</image>
-						</view>
+						 <navigator class="right-img-item" v-for="(item2, i2) in item.product_list" :key="i2" v-if="i2 !== 0" :url="item2.url">
+						      <image :src="item2.image_src" mode="widthFix" :style="{width: item2.image_width + 'rpx'}"></image>
+						    </navigator>
 					</view>
 				</view>
 			</view>
@@ -101,6 +99,11 @@
 					url: "/api/public/v1/home/floordata",
 				})
 				if (res.meta.status == 200) {
+					 res.message.forEach(floor => {
+					    floor.product_list.forEach(prod => {
+					      prod.url = '/subpage/goods_list/goods_list?' + prod.navigator_url.split('?')[1]
+					    })
+					  })
 					this.floorList = res.message
 				} else if (res.meta.status !== 200) {
 					uni.showToast({

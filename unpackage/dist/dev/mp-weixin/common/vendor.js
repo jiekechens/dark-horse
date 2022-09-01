@@ -9043,7 +9043,7 @@ internalMixin(Vue);
 /***/ }),
 /* 5 */
 /*!**************************************!*\
-  !*** D:/learn/blackhouse/pages.json ***!
+  !*** D:/learn/dark-horse/pages.json ***!
   \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -9980,7 +9980,7 @@ if (hadRuntime) {
 /***/ }),
 /* 21 */
 /*!****************************************!*\
-  !*** D:/learn/blackhouse/utils/api.js ***!
+  !*** D:/learn/dark-horse/utils/api.js ***!
   \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
