@@ -5,7 +5,14 @@
     "pages/cart/cart",
     "pages/user/user"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "subpage",
+      "pages": [
+        "goods_detail/goods_detail"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "小橘商城",
