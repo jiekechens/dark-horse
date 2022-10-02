@@ -1,10 +1,14 @@
 <template>
+	
 	<view class="content">
+		<view class="search-box">
+		 <my-seach @click="gotoSearch"></my-seach>
+		</view>
 		<!-- 轮播图 -->
 		<view class="sweiperList">
 			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
 				<swiper-item v-for="(item,index) in swiperList" :key="item.goods_id">
-					<navigator class="swiper-item" :url="'/subpage/goods_detail/goods_detail?id='+item.goods_id">
+					<navigator class="swiper-item" :url="'/subpage/goods_detail/goods_detail?goods_id='+item.goods_id">
 						<image :src="item.image_src" mode="widthFix"></image>
 					</navigator>
 
@@ -24,16 +28,14 @@
 				<image :src="item.floor_title.image_src" mode="widthFix" class="floor-title"></image>
 				<view class="floor-img-box">
 					<!-- 左侧大图片的盒子 -->
-					<view class="left-img-box">
-						<image :src="item.product_list[0].image_src"
-							:style="{width: item.product_list[0].image_width + 'rpx'}" mode="widthFix"></image>
-					</view>
+					<navigator class="left-img-box" :url="item.product_list[0].url">
+					    <image :src="item.product_list[0].image_src" :style="{width: item.product_list[0].image_width + 'rpx'}" mode="widthFix"></image>
+					  </navigator>
 					<!-- 右侧 4 个小图片的盒子 -->
 					<view class="right-img-box">
-						<view class="right-img-item" v-for="(item2, i2) in item.product_list" :key="i2" v-if="i2 !== 0">
-							<image :src="item2.image_src" mode="widthFix" :style="{width: item2.image_width + 'rpx'}">
-							</image>
-						</view>
+						 <navigator class="right-img-item" v-for="(item2, i2) in item.product_list" :key="i2" v-if="i2 !== 0" :url="item2.url">
+						      <image :src="item2.image_src" mode="widthFix" :style="{width: item2.image_width + 'rpx'}"></image>
+						    </navigator>
 					</view>
 				</view>
 			</view>
@@ -44,8 +46,12 @@
 <script>
 	import {
 		requset
-	} from "@/utils/api.js"
+	} from "@/utils/api.js";
+	import mySeach from '@/components/mySeach/mySeach.vue';
 	export default {
+		components:{
+			mySeach
+		},
 		data() {
 			return {
 				swiperList: [],
@@ -101,6 +107,11 @@
 					url: "/api/public/v1/home/floordata",
 				})
 				if (res.meta.status == 200) {
+					 res.message.forEach(floor => {
+					    floor.product_list.forEach(prod => {
+					      prod.url = '/subpage/goods_list/goods_list?' + prod.navigator_url.split('?')[1]
+					    })
+					  })
 					this.floorList = res.message
 				} else if (res.meta.status !== 200) {
 					uni.showToast({
@@ -111,10 +122,12 @@
 				}
 
 			},
-
+			gotoSearch() {
+			  uni.navigateTo({
+			    url: '/subpage/search/search'
+			  })
+			},
 		},
-
-
 	}
 </script>
 
@@ -128,7 +141,15 @@
 			height: 100%;
 		}
 	}
-
+.search-box {
+  // 设置定位效果为“吸顶”
+  position: sticky;
+  // 吸顶的“位置”
+  top: 0;
+  // 提高层级，防止被轮播图覆盖
+  z-index: 999;
+ // height: 100rpx;
+}
 	.nav-list {
 		display: flex;
 		justify-content: space-around;

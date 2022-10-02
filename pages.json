@@ -24,6 +24,7 @@
 				"navigationBarTitleText": "个人中心"
 			}
 		}
+        
     ],
 	"tabBar": {
 		"selectedColor": "#C00000",
@@ -69,6 +70,26 @@
                 
                 }
               
+                ,{
+                    "path" : "goods_list/goods_list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": true,
+					"onReachBottomDistance": 150,
+					"backgroundColor": "#F8F8F8"
+                }
+                
+                }
+                ,{
+                    "path" : "search/search",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		}
 	],

@@ -9,7 +9,9 @@
     {
       "root": "subpage",
       "pages": [
-        "goods_detail/goods_detail"
+        "goods_detail/goods_detail",
+        "goods_list/goods_list",
+        "search/search"
       ]
     }
   ],
